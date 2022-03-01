@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+<link rel="stylesheet" href="clock.css">
+<title> stupid o clock</title>
+</head>
+
+<body>
+
+<h1>And here we have it, a stupid clock!</h2>
+
+<div class="clock">
+    <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand minute-hand"></div>
+        <div class="hand second-hand"></div>
+    </div>
+</div>
+
+<script>
+    const secondHand = document.querySelector(`.second-hand`);
+    const minuteHand = document.querySelector(`.minute-hand`)
+    const hourHand =  document.querySelector(`.hour-hand`)
+    // const randTranslation = document.querySelector(`.hand`)
+
+    // const rand = Math.random()* 100
+    // console.log(rand)
+
+    function setClock(){
+        const now = new Date()
+        const seconds = now.getSeconds()
+        const secondsDegrees = (((seconds / 240) * 360) )
+        const minuteDegrees = (((seconds / 5) * 360) + 45)
+        const hourDegrees = (((seconds / 60) * 360) + 90) 
+
+        secondHand.style.transform = `rotate(${secondsDegrees}deg)`
+        minuteHand.style.transform = `rotate(${minuteDegrees}deg)`
+        hourHand.style.transform = `rotate(${hourDegrees}deg)`
+
+        // randTranslation.style.top = `${rand}%`
+
+
+    }
+    setInterval(setClock, 0)
+
+
+</script>
+
+</body>

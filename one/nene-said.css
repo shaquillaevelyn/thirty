@@ -1,5 +1,19 @@
+body{
+    background-color: grey;
+    position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+padding: 10px;
+}
+
+h1{
+    text-align: center;
+}
+
 .keys{
     display: inline-flex;
+    
  
 }
 
@@ -12,6 +26,7 @@
     border-width: 7px;
     border-color: black;
     text-align: center;
+    overflow: unset;
     transition: all 0.07s;
 
 }

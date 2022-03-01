@@ -6,6 +6,7 @@
 </head>
 
 <body>
+     <h1> Linnethia Monique Leakes once said</h1>
      <div class="keys">
      <div class="key" data-key=68>
      <kbd   > D  </kbd>
@@ -32,11 +33,17 @@
      <span role="label"> THE BANK  </span>
      </div>
 
-     <audio data-key=68></audio>
-     <audio data-key=70 ></audio>
-     <audio data-key=71 ></audio>
-     <audio data-key=72 ></audio>
-     <audio data-key=74 ></audio>
+     <div class="key" data-key=75>
+          <kbd> K </kbd>
+          <span role="label"> WHITE FRIDGE  </span>
+     </div>
+
+     <audio data-key=68 src="./audio/ghetto.mp3"></audio>
+     <audio data-key=70 src="./audio/okay.mp3"></audio>
+     <audio data-key=71 src="./audio/said.mp3"></audio>
+     <audio data-key=72 src="./audio/bloop.mp3"></audio>
+     <audio data-key=74 src="./audio/thebank.mp3"></audio>
+     <audio data-key=75 src="./audio/fridge.mp3"></audio>
 
 </div>
 
@@ -49,6 +56,7 @@
         const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
         console.log(audio);
         console.log(key) ;
+        console.log("this is" + e)
         if (!audio) return;
 
 
@@ -67,7 +75,6 @@
 
 
           const keys = document.querySelectorAll(`.key`);
-     console.log(keys)
           keys.forEach(key => (key.addEventListener('transitionend', removeTransition)))
     
      
