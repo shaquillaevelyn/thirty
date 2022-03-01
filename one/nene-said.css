@@ -12,6 +12,7 @@
     border-width: 7px;
     border-color: black;
     text-align: center;
+    transition: all 0.07s;
 
 }
 

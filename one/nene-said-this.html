@@ -7,36 +7,36 @@
 
 <body>
      <div class="keys">
-     <div class="key">
-     <kbd data-key=68  > D  </kbd>
+     <div class="key" data-key=68>
+     <kbd   > D  </kbd>
           <span role="label"> THE GHETTO</span>
      </div>
 
-     <div class="key">
-     <kbd data-key=70 > F </kbd>
+     <div class="key"  data-key=70 >
+     <kbd> F </kbd>
           <span role="label"> OKAY! </span>
      </div>
 
-     <div class="key"> 
-     <kbd data-key=71> G </kbd>
+     <div class="key"  data-key=71> 
+     <kbd> G </kbd>
      <span role="label">  I SAID WHAT I SAID </span>
      </div>
 
-     <div class="key">
-     <kbd data-key=72> H </kbd>
+     <div class="key" data-key=72 >
+     <kbd> H </kbd>
      <span role="label"> BLOOP </span>
           </div>
 
-     <div class="key">
-     <kbd data-key=74> J </kbd>
+     <div class="key" data-key=74>
+     <kbd> J </kbd>
      <span role="label"> THE BANK  </span>
      </div>
 
-     <audio data-key=68 src=""></audio>
-     <audio data-key=70 src=""></audio>
-     <audio data-key=71 src=""></audio>
-     <audio data-key=72 src=""></audio>
-     <audio data-key=74 src=""></audio>
+     <audio data-key=68></audio>
+     <audio data-key=70 ></audio>
+     <audio data-key=71 ></audio>
+     <audio data-key=72 ></audio>
+     <audio data-key=74 ></audio>
 
 </div>
 
@@ -44,20 +44,36 @@
 <script>
 
 //location we listening to. event we are listening for. event specific
-   window.addEventListener('keydown', function (e) {
-        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-        console.log(audio)
-        
-        if (!audio) { return }
+   window.addEventListener('keydown', function(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+        console.log(audio);
+        console.log(key) ;
+        if (!audio) return;
 
+
+        key.classList.add('playing');
           audio.currentTime = 0;
-          audio.play()
-
-          // adding new css class on keyup
-          key.classList.add('playing')
+          audio.play();
+    
    })
 
 
+   function removeTransition(e){
+        if (e.propertyName !== 'transform')
+        return
+     this.classList.remove('playing')
+     }
+
+
+          const keys = document.querySelectorAll(`.key`);
+     console.log(keys)
+          keys.forEach(key => (key.addEventListener('transitionend', removeTransition)))
+    
+     
+   
+
+     
 
 </script>
 
