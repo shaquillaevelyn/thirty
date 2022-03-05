@@ -2,15 +2,81 @@
 
 <head>
 <link rel="stylesheet" href="picture.css">
-<title> stupid o clock</title>
+<title> edit me</title>
 </head>
 
 <body>
+    <h1>Edit me</h1>
+    <div class="controls">
+        <label>spacing</label>
+        <input type="range" name="spacing" min="10" max="200" data-sizing="px"></input>
+        <label>colour</label>
+        <input type="color" name="base" value="#f34"></input>
+        <label>blur</label>
+        <input type="range" name="blur" min="0" max="50" data-sizing="px"></input>
+        
 
+    </div>
+
+    <img src="me.jpg" alt="shaquilla selfie">
+
+    <!-- css elements are declared on some root -->
+    <style>
+    
+
+    :root{
+            --base: #ffffff;
+            --spacing: 10px;
+            --blur: 0px;
+
+        }
+
+        img{
+            width: 40%;
+            height: 40%;
+            background-color: var(--base);
+            padding: var(--spacing);
+            filter: blur(var(--blur));
+        }
+
+
+        body{
+            text-align: center;
+        }
+
+        body{
+            background: #193549;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 200px;
+            font-size: 50px;
+            color: white;
+
+        }
+
+        .controls{
+            margin-bottom: 20px;
+        }
+
+   
+      
+    </style>
 
 
     <script>
-        window.document.querySelector('body')
+//  js to edit the variables
+    const inputs = document.querySelectorAll('.controls input')
+    // gives a node list. not array. node list dont have array methods.
+    
+    function handleUpdate(){
+        // dataset is object that holds data attributes from element
+        const suffix = this.dataset.sizing || '';
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
+        console.log(this.name)
+        console.log(this.value)
 
+        console.log
+    }
+    inputs.forEach(input => input.addEventListener('change', handleUpdate))
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate))
     </script>
 </body>
