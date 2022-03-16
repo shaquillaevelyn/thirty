@@ -1,0 +1,60 @@
+body{
+    position: relative;
+}
+
+.panels{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 25vh;
+
+}
+
+.panel{
+    height: 50vh;
+    flex: 1;
+
+}
+
+.panel.open{
+    height: 50vh;
+    flex: 2;
+
+}
+
+.panel h2{
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+
+.panel > *:last-child {
+    display: none;
+}
+
+.panel.open> *:last-child{
+    display: inline;
+}
+
+.panel-1{
+    background-color: red;
+}
+
+.panel-2{
+    background-color: orange;
+}
+
+
+.panel-3{
+    background-color: yellow;
+}
+
+
+.panel-4{
+    background-color: yellowgreen;
+}
+
+
+.panel-5{
+    background-color: blue;
+}
+
